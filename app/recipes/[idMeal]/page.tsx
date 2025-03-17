@@ -6,12 +6,12 @@ import Image from "next/image";
 import { Meal } from "@/app/interfaces/Meal";
 import { AppProps } from "next/app";
 
-type RecipeParams = {
-  idMeal: Promise<string>;
-};
-
-const RecipeById = async ({ params }: { params: RecipeParams }) => {
-  const id = await params.idMeal;
+const RecipeById = async ({
+  params,
+}: {
+  params: Promise<{ idMeal: string }>;
+}) => {
+  const id = (await params).idMeal;
   const meal = useSelector((state: RootState) => state.recipeList.list).find(
     (meal) => meal.idMeal === id
   );
