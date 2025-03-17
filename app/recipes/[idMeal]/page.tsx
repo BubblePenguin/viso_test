@@ -4,10 +4,11 @@ import { RootState } from "@/app/store/store";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Meal } from "@/app/interfaces/Meal";
+import { AppProps } from "next/app";
 
-interface RecipeParams {
+type RecipeParams = AppProps & {
   idMeal: string;
-}
+};
 
 const RecipeById = ({ params }: { params: RecipeParams }) => {
   const meal = useSelector((state: RootState) => state.recipeList.list).find(
