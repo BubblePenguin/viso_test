@@ -4,7 +4,6 @@ import { RootState } from "@/app/store/store";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Meal } from "@/app/interfaces/Meal";
-import { AppProps } from "next/app";
 
 const RecipeById = async ({
   params,

@@ -1,22 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { fetchAllRecipes } from "./lib/api";
-import { useDispatch, useSelector } from "react-redux";
-import { add, clear, set } from "./store/slice";
-import { useEffect } from "react";
-
-// import axios from "axios";
 
 export default function Home() {
-  // const arr = axios.get(
-  //   "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
-  // );
-
-  // console.log(arr);
   const router = useRouter();
-
-  // fetchAllRecipes((d) => console.log(d));
 
   return (
     <main className="w-full h-screen bg-gray-200">
