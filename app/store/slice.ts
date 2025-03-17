@@ -7,7 +7,8 @@ export interface RecipeState {
 }
 
 const initialState = {
-  list: mock.meals,
+  list: mock.meals as Meal[],
+  filter: [] as string[],
 };
 
 export const recipeListSlice = createSlice({
@@ -17,13 +18,13 @@ export const recipeListSlice = createSlice({
     set: (state, action) => {
       state.list = action.payload;
     },
-    clear: (state) => {
-      state.list = [];
+    setFilter(state, action) {
+      state.filter = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { set, clear } = recipeListSlice.actions;
+export const { set, setFilter } = recipeListSlice.actions;
 
 export default recipeListSlice.reducer;
