@@ -30,6 +30,7 @@ export const getByLetter = async (letter: string) => {
   try {
     const response = await axios.get(`/search.php?f=${letter}`);
 
+    if (!response.data.meals[0].idMeal) return [];
     return response.data.meals;
   } catch (err) {
     console.error("Ошибка при запросе: ", err);
@@ -40,7 +41,7 @@ export const getByLetter = async (letter: string) => {
 export const getByName = async (name: string) => {
   try {
     const response = await axios.get(`/search.php?s=${name}`);
-
+    if (!response.data.meals[0].idMeal) return [];
     return response.data.meals;
   } catch (err) {
     console.error("Ошибка при запросе: ", err);

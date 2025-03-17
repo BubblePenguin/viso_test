@@ -38,7 +38,7 @@ const RecipeList: React.FC<ListProps> = () => {
   const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
@@ -52,28 +52,33 @@ const RecipeList: React.FC<ListProps> = () => {
   return (
     <>
       <div className="flex flex-wrap gap-5 p-10 w-full justify-between ">
-        <CurrentRecipes currentItems={currentItems} />
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={(event) => {
-            const newOffset = (event.selected * itemsPerPage) % items.length;
-            console.log(
-              `User requested page number ${event.selected}, which is offset ${newOffset}`
-            );
-            setItemOffset(newOffset);
-          }}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-          containerClassName="w-full flex justify-center gap-3 items-center mt-3"
-          breakClassName={classes}
-          nextClassName={classes}
-          previousClassName={classes}
-          pageClassName={classes}
-          activeClassName="font-bold"
-        />
+        {items && (
+          <>
+            <CurrentRecipes currentItems={currentItems} />
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="next >"
+              onPageChange={(event) => {
+                const newOffset =
+                  (event.selected * itemsPerPage) % items.length;
+                // console.log(
+                //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+                // );
+                setItemOffset(newOffset);
+              }}
+              pageRangeDisplayed={5}
+              pageCount={pageCount}
+              previousLabel="< previous"
+              renderOnZeroPageCount={null}
+              containerClassName="w-full flex justify-center gap-3 items-center mt-3"
+              breakClassName={classes}
+              nextClassName={classes}
+              previousClassName={classes}
+              pageClassName={classes}
+              activeClassName="font-bold"
+            />
+          </>
+        )}
       </div>
     </>
   );

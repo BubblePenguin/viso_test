@@ -48,6 +48,8 @@ const SearchBar = () => {
   };
 
   const getCategoryes = (list: Meal[]) => {
+    // console.log(list);
+
     if (!list) return [];
     const arr = list.map((i) => i.strCategory);
     return arr ? [...new Set(arr)] : [];
