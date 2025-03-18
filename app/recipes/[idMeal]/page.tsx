@@ -6,7 +6,7 @@ import { Meal } from "@/app/interfaces/Meal";
 import { useEffect, useState } from "react";
 import SingleMeal from "@/app/components/SingleMeal";
 
-const RecipeById = ({
+export default ({
   params,
 }: {
   params: Promise<{ idMeal: string; meals: Meal[] }>;
@@ -33,5 +33,3 @@ const RecipeById = ({
 
   return <SingleMeal meal={meal} />;
 };
-
-export default RecipeById;
