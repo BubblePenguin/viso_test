@@ -8,6 +8,7 @@ const NavBar = () => {
       <div className="w-7xl px-5">
         <NavLink label="Home" href={`/`} />
         <NavLink label="Recipes" href={`/recipes`} />
+        <NavLink label="To do" href={`/todo`} />
       </div>
     </nav>
   );

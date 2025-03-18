@@ -17,8 +17,7 @@ const CurrentRecipes = ({ currentItems }: { currentItems: Meal[] }) =>
     <RecipeItem key={item.idMeal} meal={item} />
   ));
 
-const RecipeList: React.FC<ListProps> = () => {
-  const meals = useSelector((state: RootState) => state.recipeList.list);
+const RecipeList: React.FC<ListProps> = ({ meals }) => {
   const filter = useSelector(
     (state: RootState) => state.recipeList.filter as string[]
   );

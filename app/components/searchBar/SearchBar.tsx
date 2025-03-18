@@ -33,14 +33,11 @@ const SearchBar = () => {
       console.log(query);
 
       if (!query || !(query?.length > 0) || query.toLowerCase() === "all") {
-        const data = await getAllRecipes();
-        dispatch(set(data));
+        dispatch(set(await getAllRecipes()));
       } else if (query?.length === 1) {
-        const data = await getByLetter(query);
-        dispatch(set(data));
+        dispatch(set(await getByLetter(query)));
       } else if (query?.length > 1) {
-        const data = await getByName(query);
-        dispatch(set(data));
+        dispatch(set(await getByName(query)));
       }
     } catch (error) {
       console.error("Error: ", error);
@@ -48,8 +45,6 @@ const SearchBar = () => {
   };
 
   const getCategoryes = (list: Meal[]) => {
-    // console.log(list);
-
     if (!list) return [];
     const arr = list.map((i) => i.strCategory);
     return arr ? [...new Set(arr)] : [];

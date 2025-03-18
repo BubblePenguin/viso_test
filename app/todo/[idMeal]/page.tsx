@@ -14,7 +14,7 @@ const RecipeById = ({
   const [id, setId] = useState<string | null>(null);
   const [meal, setMeal] = useState<Meal | null>(null);
 
-  const meals = useSelector((state: RootState) => state.recipeList.list);
+  const meals = useSelector((state: RootState) => state.recipeList.todolist);
 
   useEffect(() => {
     const fetchId = async () => {
