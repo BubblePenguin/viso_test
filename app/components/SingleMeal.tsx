@@ -4,9 +4,11 @@ import Image from "next/image";
 import { Meal } from "@/app/interfaces/Meal";
 import { useDispatch } from "react-redux";
 import { addToDo, removeToDo } from "../store/slice";
+import { useRouter } from "next/navigation";
 
 const SingleMeal = ({ meal }: { meal: Meal | null }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const getIngredients = (meal: Meal) => {
     if (!meal) return;
@@ -76,7 +78,11 @@ const SingleMeal = ({ meal }: { meal: Meal | null }) => {
             <div className="w-full flex gap-5 mt-5">
               <button
                 className={btnClasses}
-                onClick={() => dispatch(addToDo(meal))}
+                onClick={() => {
+                  dispatch(addToDo(meal));
+
+                  router.push("/todo");
+                }}
               >
                 Add to To Do List
               </button>

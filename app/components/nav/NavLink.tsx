@@ -7,7 +7,7 @@ const NavLink = ({ label, href }: { label: string; href: string }) => {
 
   return (
     <span
-      className="hover:border-black border-b-2 border-transparent mx-5 text-2xl font-semibold"
+      className="hover:border-black border-b-2 border-transparent mx-5 text-2xl font-semibold cursor-pointer"
       onClick={() => router.push(href)}
     >
       {label}
